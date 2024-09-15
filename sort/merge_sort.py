@@ -1,10 +1,3 @@
-[3,5,6,1,2,4]
-[3,5,6], [1,2,4]
-[3,5], [6], [1,2], [4]
-[3], [5], [6], [1], [2], [4]
-
-from typing import Any
-
 def _return_half_len(full_len: int):
 
     if full_len == 1:
@@ -44,14 +37,12 @@ def divide_step(input_list: list[int]):
 
     return result
     
-    
-
+## 
 def merge_step(input_divided_list: list[list[int]]):
     pass
 
 
-
 if __name__ == '__main__':
-    input_list = [3,6,4,2,7,9,10]
+    input_list = [3,6,4,2,7,9,10, -10, -99, 3]
     divided_result = divide_step(input_list)
     print(divided_result)
