@@ -58,49 +58,39 @@ new_list = [1] -> [1,2] -> [1,2,3] -> [1,2,3,4]
 # [[3], [6], [4], [2], [7], [9], [10], [-10], [-99], [3]]
 # [[3, 6], [2, 4], [7, 9], [-10, 10], [-99, 3]]
 
-def merge_step2(input_divided_list: list[list[int]]):
+def merge_step(input_divided_list: list[list[int]]):
     
     step = True
-    while step:
-        step = False
-
-        new_list = []
-        for i in range(2):
-            print(input_divided_list[i])
-            new_list.append(input_divided_list[i][0])
-            
-
-
-
-def merge_step(input_divided_list: list[list[int]]):
-    """
-    리스트를 2개씩 비교해서 재귀로 해야할듯
-    """
-    result_list = []
+    new_list = []
     temp_list = []
-
-    for i in input_divided_list:
-        # 만약 기존 temp_list가 짝수면
-        if len(temp_list) == 2:
-            temp_list = []        
-        temp_list.append(i[0])
+    
+    while step:
+        print(new_list)
+        step = False
         
+        
+        for i in range(2):
+            
+            temp_list.append(input_divided_list[0])
+            input_divided_list.pop(0)
+
         if len(temp_list) == 2:
             if temp_list[0] > temp_list[1]:
                 temp_list[0], temp_list[1] = temp_list[1], temp_list[0]
-            result_list.append(temp_list)
+            new_list.append(temp_list)
+            temp_list = []
+    
+        if len(input_divided_list) != 0:
+            step = True
 
-    print(result_list)
-    return result_list
-
-
-
+    
+    return merge_step(new_list)
 
 if __name__ == '__main__':
-    input_list = [3,6,4,2,7,9,10, -10, -99, 3]
+    input_list = [3,6,4,2,7,9,10, -10, -99, 18]
     divided_result = divide_step(input_list)
 
     print(divided_result)
-    merge_step2(divided_result)
+    merge_step(divided_result)
     # merged_result = merge_step(divided_result)
     # merged_result = merge_step(merged_result)
