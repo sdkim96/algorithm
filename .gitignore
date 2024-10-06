@@ -1,3 +1,6 @@
 .venv
 poetry.lock
 word_json.json
+
+# Ignore .dSYM folders
+*.dSYM
