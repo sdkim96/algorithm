@@ -1,30 +1,36 @@
 {
-    "version": "0.2.0",
-    "configurations": [
+  "version": "0.2.0",
+  "configurations": [
       {
-        "name": "(gdb) Launch",  // 디버그 설정 이름
-        "type": "cppdbg",        // 디버깅 타입 (cppdbg)
-        "request": "launch",     // 실행 방식
-        "program": "${workspaceFolder}/a.out",  // 실행할 프로그램의 경로
-        "args": [],              // 프로그램에 전달할 인수
-        "stopAtEntry": false,    // 프로그램 시작 시 멈출지 여부
-        "cwd": "${workspaceFolder}",  // 현재 작업 디렉토리
-        "environment": [],
-        "externalConsole": true, // 외부 콘솔 창에서 실행 여부
-        "MIMode": "gdb",         // gdb 또는 lldb 사용 여부
-        "setupCommands": [
-          {
-            "description": "Enable pretty-printing for gdb",
-            "text": "-enable-pretty-printing",
-            "ignoreFailures": true
-          }
-        ],
-        "miDebuggerPath": "/usr/bin/gdb",  // GDB 경로
-        "preLaunchTask": "build",          // 실행 전에 실행할 작업 (예: 빌드)
-        "internalConsoleOptions": "openOnSessionStart",
-        "logging": {
-          "engineLogging": true
-        }
+          "name": "(gdb) Launch",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${workspaceFolder}/build/main",
+          "args": [],
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}",
+          "environment": [],
+          "externalConsole": false,
+          "MIMode": "gdb",
+          "setupCommands": [
+              {
+                  "description": "Enable pretty-printing for gdb",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              }
+          ],
+          "preLaunchTask": "build",
+          "miDebuggerPath": "/usr/bin/gdb",
+          "setupCommands": [
+              {
+                  "description": "Enable pretty-printing for gdb",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              }
+          ],
+          "internalConsoleOptions": "openOnSessionStart",
+          "filterStderr": true,
+          "filterStdout": true
       }
-    ]
-  }
+  ]
+}

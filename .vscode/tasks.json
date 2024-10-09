@@ -1,5 +1,26 @@
 {
+    "version": "2.0.0",
     "tasks": [
+        {
+            "label": "build-default",
+            "type": "shell",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}/modules/src/main.cpp",
+                "${workspaceFolder}/modules/include/rectangle.cpp",  // src 폴더에서 rectangle.cpp 추가
+                "-o",
+                "${workspaceFolder}/modules/build/main.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true   // 이 작업을 기본 작업으로 설정
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Default build task to compile C++ files."
+        },
         {
             "type": "cppbuild",
             "label": "C/C++: g++ 활성 파일 빌드",
@@ -19,10 +40,9 @@
             ],
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": false  // 기본 작업이 아님
             },
             "detail": "디버거에서 생성된 작업입니다."
         }
-    ],
-    "version": "2.0.0"
+    ]
 }

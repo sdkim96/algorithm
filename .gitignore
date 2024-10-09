@@ -5,3 +5,5 @@ word_json.json
 # Ignore .dSYM folders
 *.dSYM
 *.ipynb
+
+build
